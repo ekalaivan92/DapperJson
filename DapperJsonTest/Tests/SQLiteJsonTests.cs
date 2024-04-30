@@ -12,8 +12,8 @@ namespace Dapper.Json.Tests;
 
 public class SQLiteJsonTests
 {
-    private string _connectionString = @"";
-    
+    private string _connectionString = "Data source=./testjson.db;";
+
     private IDbConnection GetDbConnection()
     {
         var connection = new SQLiteConnection(_connectionString);
