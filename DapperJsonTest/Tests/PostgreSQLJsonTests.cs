@@ -12,7 +12,7 @@ namespace Dapper.Json.Tests;
 public class PostgreSQLJsonTests
 {
     private string _connectionString = @"";
-    
+
     private IDbConnection GetDbConnection()
     {
         var connection = new NpgsqlConnection(_connectionString);
@@ -24,6 +24,11 @@ public class PostgreSQLJsonTests
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
+        if (string.IsNullOrEmpty(_connectionString))
+        {
+            Assert.Ignore("Datasouce not configured");
+        }
+
         Assembly.GetExecutingAssembly().RegisterJsonTypeHandlers();
 
         using (var connection = GetDbConnection())
@@ -48,8 +53,11 @@ public class PostgreSQLJsonTests
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-        using (var connection = GetDbConnection())
-            connection.Execute(@"drop table if exists apiresponsehistories");
+        if (!string.IsNullOrEmpty(_connectionString))
+        {
+            using (var connection = GetDbConnection())
+                connection.Execute(@"drop table if exists apiresponsehistories");
+        }
 
         Console.WriteLine("[PostgreSQL-Json] Full Test Completed");
     }

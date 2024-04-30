@@ -25,6 +25,11 @@ public class SQLiteJsonTests
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
+        if (string.IsNullOrEmpty(_connectionString))
+        {
+            Assert.Ignore("Datasouce not configured");
+        }
+
         Assembly.GetExecutingAssembly().RegisterJsonTypeHandlers();
 
         using (var connection = GetDbConnection())
@@ -49,8 +54,11 @@ public class SQLiteJsonTests
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-        using (var connection = GetDbConnection())
-            connection.Execute(@"drop table if exists apiresponsehistories");
+        if (!string.IsNullOrEmpty(_connectionString))
+        {
+            using (var connection = GetDbConnection())
+                connection.Execute(@"drop table if exists apiresponsehistories");
+        }
 
         Console.WriteLine("[SQLite-Json] Full Test Completed");
     }

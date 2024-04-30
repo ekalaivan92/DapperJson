@@ -13,7 +13,7 @@ namespace Dapper.Json.Tests;
 public class MSSQLServerJsonTests
 {
     private string _connectionString = @"";
-    
+
     private IDbConnection GetDbConnection()
     {
         var connection = new SqlConnection(_connectionString);
@@ -25,6 +25,11 @@ public class MSSQLServerJsonTests
     [OneTimeSetUp]
     public void OneTimeSetup()
     {
+        if (string.IsNullOrEmpty(_connectionString))
+        {
+            Assert.Ignore("Datasouce not configured");
+        }
+
         Assembly.GetExecutingAssembly().RegisterJsonTypeHandlers();
 
         using (var connection = GetDbConnection())
@@ -49,8 +54,11 @@ public class MSSQLServerJsonTests
     [OneTimeTearDown]
     public void OneTimeTearDown()
     {
-        using (var connection = GetDbConnection())
-            connection.Execute(@"drop table if exists apiresponsehistories");
+        if (!string.IsNullOrEmpty(_connectionString))
+        {
+            using (var connection = GetDbConnection())
+                connection.Execute(@"drop table if exists apiresponsehistories");
+        }
 
         Console.WriteLine("[SQLServer-Json] Full Test Completed");
     }
