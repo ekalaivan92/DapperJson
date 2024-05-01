@@ -94,7 +94,7 @@ Consider a scenario where you need to store API responses along with request par
 
 Define C# classes representing the JSON structures for API responses and request parameters. These classes should implement the `IJson` interface from the `Dapper.Json.Types` namespace.
 
-```C#
+```csharp
 public class APIResponse : IJson
 {
     public HttpStatusCode StatusCode { get; set; }
@@ -115,7 +115,7 @@ public class APIRequestParameter : IJson
 
 Define the entity class representing the database table `apiresponsehistories`, incorporating the JSON properties using the previously defined classes.
 
-```C#
+```csharp
 [Table("apiresponsehistories")]
 public class APIResponseHistory
 {
@@ -145,11 +145,24 @@ create table apiresponsehistories(id int identity(1,1) primary key, parameters v
 
 Utilize Dapper.Json within your database operations for seamless handling of JSON data.
 
-```C#
+```csharp
 var apiResponseHistory = new APIResponseHistory
 {
-    Parameters = new List<APIRequestParameter> { new APIRequestParameter { ParameterName = "RequestPath", ParameterType = "String", ParameterValue = requestPath } },
-    Response = new APIResponse { StatusCode = statusCode, Message = message, Amount = amount, Qty = qty }
+    Parameters = new List<APIRequestParameter>
+    {
+        new APIRequestParameter
+        {
+            ParameterName = "RequestPath",
+            ParameterType = "String",
+            ParameterValue = requestPath
+        }
+    },
+    Response = new APIResponse
+    {
+        StatusCode = statusCode,
+        Message = message,
+        Amount = amount, Qty = qty
+    }
 };
 
 // Insert operation
