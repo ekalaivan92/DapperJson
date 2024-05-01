@@ -22,6 +22,25 @@ While initially intended for Postgresql, Dapper.Json is compatible with SQL Serv
 
 Seamlessly integrate Dapper.Json with your Dapper ORM operations, enabling smooth handling of JSON data within your database interactions.
 
+## Installation
+
+You can install the `Eka.Dapper.Json` NuGet package using the following command:
+
+- .NET CLI
+```bash
+dotnet add package Eka.Dapper.Json --version 1.0.0
+```
+- Package Manager
+```bash
+NuGet\Install-Package Eka.Dapper.Json -Version 1.0.0
+```
+- Package Reference
+```xml
+<PackageReference Include="Eka.Dapper.Json" Version="1.0.0" />
+```
+- 
+
+
 ## Integration
 
 **Inheritance of `IJson` Interface**
