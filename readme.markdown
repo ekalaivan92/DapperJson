@@ -38,7 +38,8 @@ NuGet\Install-Package Eka.Dapper.Json -Version 1.0.0
 ```xml
 <PackageReference Include="Eka.Dapper.Json" Version="1.0.0" />
 ```
-- 
+
+The package available in [Nuget](https://www.nuget.org/packages/Eka.Dapper.Json)
 
 
 ## Integration
