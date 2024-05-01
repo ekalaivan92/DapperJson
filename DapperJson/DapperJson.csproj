@@ -5,14 +5,46 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <LangVersion>10.0</LangVersion>
-    <IsPackable>false</IsPackable>
+
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Eka.Dapper.Json</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Ekalaivan Chidambaram</Authors>
+    <Description>
+      A lightweight library for storing and retrieving JSON content within database
+      columns when using Dapper ORM just by inheriting a Interface, Less code more productivity.
+      Currently supported for PostgreSQL, MS SQL Server, SQLite.
+    </Description>
+    <PackageTags>
+      Dapper ORM, PostgreSQL, SQLite, SQLServer - Json/JsonB.
+    </PackageTags>
+    <PackageProjectUrl>https://github.com/ekalaivan92/DapperJson</PackageProjectUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/ekalaivan92/DapperJson</RepositoryUrl>
+    <Copyright>Copyright (c) 2024 Ekalaivan Chidambaram</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageReleaseNotes>
+      Version 1.0.0
+      Introduction:
+      Dapper.Json is introduced as a lightweight library designed to streamline the storage and retrieval of JSON content within database columns when using Dapper ORM across different database management systems. It simplifies the serialization and deserialization process, ensuring seamless interaction with JSON data in C# applications.
+    
+      To Know more visit [Project URL](https://github.com/ekalaivan92/DapperJson)
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.4" />
-    <PackageReference Include="Npgsql" Version="6.0.10" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.5" />
+    <PackageReference Include="Npgsql" Version="4.0.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.111" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
   </ItemGroup>
 </Project>
