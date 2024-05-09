@@ -2,6 +2,7 @@
 using Dapper.Json.Types;
 using Dapper.Json.TypeHandlers;
 using static Dapper.SqlMapper;
+using Dapper.Json.Attributes;
 
 namespace Dapper.Json.Extensions;
 
@@ -11,7 +12,9 @@ public static class TypeHandlerExtensions
     { 
         var types = assembly
             .GetTypes()
-            .Where(type => typeof(IJson).IsAssignableFrom(type));
+            .Where(type => 
+                typeof(IJson).IsAssignableFrom(type) || type.IsDefined(typeof(JsonContentAttribute), false)
+            );
 
         foreach (var type in types)
         {
