@@ -28,15 +28,15 @@ You can install the `Eka.Dapper.Json` NuGet package using the following command:
 
 - .NET CLI
 ```bash
-dotnet add package Eka.Dapper.Json --version 1.0.0
+dotnet add package Eka.Dapper.Json --version 1.1.0
 ```
 - Package Manager
 ```bash
-NuGet\Install-Package Eka.Dapper.Json -Version 1.0.0
+NuGet\Install-Package Eka.Dapper.Json -Version 1.1.0
 ```
 - Package Reference
 ```xml
-<PackageReference Include="Eka.Dapper.Json" Version="1.0.0" />
+<PackageReference Include="Eka.Dapper.Json" Version="1.1.0" />
 ```
 
 The package available in [Nuget](https://www.nuget.org/packages/Eka.Dapper.Json)
@@ -110,6 +110,30 @@ public class APIRequestParameter : IJson
     public object ParameterValue { get; set; }
 }
 ```
+or
+
+These classes should annotated with `JsonContent` attribute from the `Dapper.Json.Attributes` namespace.
+
+```csharp
+[JsonContent]
+public class APIResponse
+{
+    public HttpStatusCode StatusCode { get; set; }
+    public string Message { get; set; }
+    public int Qty { get; set; }
+    public decimal Amount { get; set; }
+}
+
+[JsonContent]
+public class APIRequestParameter
+{
+    public string ParameterName { get; set; }
+    public string ParameterType { get; set; }
+    public object ParameterValue { get; set; }
+}
+```
+
+combination of inheritance from `IJson` or annotating with `JsonContent` also possibile, having either one is required to handle the type as `Json` content. Doing both won't break anything. Recommended to do any one practice for better redability, if you find dificulties in following recommended practice no issue continue writing code, still we handle it. 
 
 ### Entity Definition
 
