@@ -1,7 +1,6 @@
 using System.Net;
 using System.Reflection;
 using Dapper.Contrib.Extensions;
-using Npgsql;
 using Dapper.Json.Extensions;
 using Newtonsoft.Json;
 using System.Data;
@@ -10,6 +9,7 @@ using System.Data.SQLite;
 
 namespace Dapper.Json.Tests;
 
+// [Ignore("not required")]
 public class SQLiteJsonTests
 {
     private string _connectionString = "Data source=./testjson.db;";

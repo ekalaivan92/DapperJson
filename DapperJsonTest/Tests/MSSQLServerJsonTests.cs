@@ -1,7 +1,6 @@
 using System.Net;
 using System.Reflection;
 using Dapper.Contrib.Extensions;
-using Npgsql;
 using Dapper.Json.Extensions;
 using Newtonsoft.Json;
 using System.Data;
@@ -10,6 +9,7 @@ using System.Data.SqlClient;
 
 namespace Dapper.Json.Tests;
 
+// [Ignore("not required")]
 public class MSSQLServerJsonTests
 {
     private string _connectionString = @"";

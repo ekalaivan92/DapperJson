@@ -1,4 +1,5 @@
 using System.Net;
+using Dapper.Json.Attributes;
 using Dapper.Json.Types;
 
 namespace Dapper.Json.Tests.Models;

@@ -10,18 +10,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Npgsql" Version="4.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
     <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
     <PackageReference Include="Dapper.Contrib" Version="1.50.5" />
-    <PackageReference Include="Eka.Dapper.Json" Version="1.0.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.111" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <!-- <PackageReference Include="Eka.Dapper.Json" Version="1.0.0" /> -->
   </ItemGroup>
   
   <ItemGroup>
-    <!-- <ProjectReference Include="../DapperJson/DapperJson.csproj" /> -->
+    <ProjectReference Include="../DapperJson/DapperJson.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- <Compile Remove="./Tests/MSSQLServerJsonTests.cs" /> -->
+    <!-- <Compile Remove="./Tests/SQLiteJsonTests.cs" /> -->
+    <!-- <Compile Remove="./Tests/PostgreSQLJsonBTests.cs" /> -->
+    <!-- <Compile Remove="./Tests/PostgreSQLJsonTests.cs" /> -->
+  </ItemGroup>
 
 </Project>
