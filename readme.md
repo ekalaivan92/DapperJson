@@ -44,9 +44,17 @@ The package available in [Nuget](https://www.nuget.org/packages/Eka.Dapper.Json)
 
 ## Integration
 
+To utilize Dapper.Json's functionality for storing and retrieving JSON content,
+
 **Inheritance of `IJson` Interface**
 
-To utilize Dapper.Json's functionality for storing and retrieving JSON content, the custom types must inherit the `IJson` interface from the `Dapper.Json.Types` namespace. This inheritance ensures that the types are recognized and processed correctly by Dapper.Json during database operations.
+The custom types can inherit the `IJson` interface from the `Dapper.Json.Types` namespace. 
+
+**Annotation of `JsonContent` Attribute**
+
+Another way is we can annotate the the type with `JsonContent` attribute from the `Dapper.Json.Attributes` namespace.
+
+any one of the above should be follwed to work correctly. This step ensures that the types are recognized and processed correctly by Dapper.Json during database operations.
 
 **Registration of Custom Types**
 
