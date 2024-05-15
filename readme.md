@@ -221,3 +221,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Conclusion
 
 Dapper.Json simplifies the management of JSON data within your database applications, providing a convenient solution for storing and retrieving JSON content across different database systems. With its seamless integration with Dapper ORM and support for various databases, Dapper.Json streamlines your development process, allowing you to focus on building robust applications.
+
+## About the author
+A dotnet full-stack developer with 9 years of experience writing business and service based applications and products [see more](https://ekalaivan.net)
